@@ -1,0 +1,13 @@
+.myform {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(-80vh);
+}
+.myform .mybox {
+  text-align: center;
+}
+.myform .myselect {
+  width: 200px;
+  margin-bottom: 30px;
+}
