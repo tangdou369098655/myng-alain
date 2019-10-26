@@ -1,0 +1,13 @@
+<p>test-page works!</p>
+<div class="formdata" *ngFor="let item of formdata_arr">
+  <div class="items" *ngIf="item.type === 'input'">
+    <span>{{item.test}}</span>
+    <input type="text" [(ngModel)]="item.value" (change)="item.change($event)">
+  </div>
+  <div class="items" *ngIf="item.type === 'select'">
+    <span>{{item.test}}</span>
+    <select>
+      <option (change)="item.change" *ngFor="let a of item.selectData" value="a.value">{{a.test}}</option>
+    </select>
+  </div>
+</div>

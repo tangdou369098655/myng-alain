@@ -16,6 +16,8 @@ import { UserRegisterResultComponent } from './passport/register-result/register
 import { CallbackComponent } from './callback/callback.component';
 import { UserLockComponent } from './passport/lock/lock.component';
 import { SysLogComponent } from './sys/log/log.component'
+import { TestPageComponent } from './test-page/test-page.component';
+import { ParentComponent } from './parent/parent.component';
 
 const routes: Routes = [
   {
@@ -25,7 +27,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent, data: { title: '仪表盘', titleI18n: 'dashboard' } },
-      { path: 'sys', component: SysLogComponent, data: { title: 'sys', titleI18n: 'dashboard' } },
+      { path: 'sys', component: ParentComponent, data: { title: 'sys', titleI18n: 'dashboard' } },
       { path: 'exception', loadChildren: () => import('./exception/exception.module').then(m => m.ExceptionModule) },
       // 业务子模块
       // { path: 'widgets', loadChildren: () => import('./widgets/widgets.module').then(m => m.WidgetsModule) },
@@ -58,11 +60,11 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(
       routes, {
-        useHash: environment.useHash,
-        // NOTICE: If you use `reuse-tab` component and turn on keepingScroll you can set to `disabled`
-        // Pls refer to https://ng-alain.com/components/reuse-tab
-        scrollPositionRestoration: 'top',
-      }
+      useHash: environment.useHash,
+      // NOTICE: If you use `reuse-tab` component and turn on keepingScroll you can set to `disabled`
+      // Pls refer to https://ng-alain.com/components/reuse-tab
+      scrollPositionRestoration: 'top',
+    }
     )],
   exports: [RouterModule],
 })
